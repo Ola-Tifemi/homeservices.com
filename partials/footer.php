@@ -1,6 +1,4 @@
-
-    
-      <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="assets/js/jquery-3.7.1.min.js"></script>
       <script>
         $(document).ready(function(){
@@ -17,5 +15,24 @@
 
         });
       </script>
+              <script>
+        $(function(){
+            $('#cart').change(function(){
+                 //read the id of the state selected 
+                var serve_id = $('#cart').val();
+
+                //alert(serve_id)
+                if(serve_id == ''){
+                    alert('Select a Service type');
+                }else{
+                    //load
+                    //send it to action file
+                    $("#cart2").load('service_typelist.php',{id:serve_id});
+                    
+                }             
+            });
+        })
+
+        </script>
 </body>
 </html>

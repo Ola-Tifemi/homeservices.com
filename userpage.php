@@ -10,7 +10,7 @@
 
       $service = $user->fetch_services_type();
       $photo = $user->fetch_profile_photo($id);
- $check = $user->get_user($id);
+    $check = $user->get_user($id);
     //  echo "<pre>";
     //   print_r($photo);
     //   echo "</pre>";
@@ -96,37 +96,32 @@
        </div>                     
             
 
-
-
-
-<div class="container-fluid mt-5">
+       <div class="container-fluid mt-5">
             <div class="row ">
                 <div class="col-lg-4 col-md-6 p-3 py-4 px-5" style="background-color:lightblue;">
                     <h4 class="text-primary mb-4 mt-5">Get In Touch</h4> 
                     <hr>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3 text-primary"></i>11 Boju Road, Farin Gida, Mand Kaduna State, Nigeria</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3 text-primary"></i>(+234) 07080375517</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3 text-primary"></i>info@anyservice.ng</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3 text-primary"></i>6, Chika Eze Close, L and K Estate, Ajah, Lagos State.</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3 text-primary"></i>(+234) 09163310932</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3 text-primary"></i>olanrewajugiwa@gmail.com</p>
                 </div>
                 <div class="col-lg-4 col-md-6 p-3 py-4 px-5" style="background-color:lightblue;">
                     <h4 class="text-primary mb-4 mt-5">Quick Links</h4>
                     <hr>
-                    <p><a class="btn" href="userpage.php">Profile</a></p>
-                    <p><a class="btn" href="aboutus.php">About Us</a></p> 
+                    <p><a class="btn" href="userpage.php">Profile</a></p> 
                     <p><a class="btn" href="logout.php">Logout</a></p>
                 </div> 
                 <div class="col-lg-4 col-md-6 py-4 px-5" style="background-color:lightblue;"> 
                     <h4 class="text-primary  mt-5">Follow Us</h4>
                     <hr>
                     <div class="d-flex pt-2" style="background-color:lightblue;">
-                        <a class="btn btn-square btn-outline-primary me-1" href="https://twitter.com/@Anyserviceng"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-primary me-1" href="https://facebook.com/anyservice.ng"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-primary me-1" href="https://www.youtube.com/channel/UCVpOmFL3uru1-zlvtGExing?view_as=subscriber"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-primary me-0" href="https://instagram.com/anyservice.ng_official"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-0" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-        </div>
             </div>
+    </div>
       
           <!-- footer ends -->
 
@@ -139,8 +134,7 @@
                     &copy; <a href="#"  class="text-decoration-none text-white">HomeServices.ng</a>, All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center bg-primary text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a href="https://htmlcodex.com" class="text-decoration-none text-white">Giwa Boluwaitfe</a>
+                    Designed By <a href="#" class="text-decoration-none text-white">Giwa Olanrewaju Boluwaitfe</a>
                 </div>
             </div>
         </div>

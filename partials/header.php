@@ -20,11 +20,11 @@
                 font-weight: 700;
             }
             #navbar ul li{
-                padding-right: 45px;
+                padding-right: 55px;
                 margin: 5px;
             }
             #navbar ul li a:hover{
-                background-color: rgb(0, 132, 255);
+                background-color: rgb(0, 132, 255) !important;
                 border-radius: 20px !important; 
             }
             .book{
@@ -32,9 +32,7 @@
                 border-radius: 20px;    
             }
             .bgimg{
-                    background-color:aquamarine;max-height:500px; width: 100%; background-size:cover;
-                    background-image: url(assets/images/happy-black-lady-cleaning.webp);  padding:100px;
-                    margin-bottom:50px;
+                    
 	          }
             .overlay{
               background-color:rgba(0,0,0,0.5); min-height:350px; width: 100%;min-height:350px; width: 100%;
@@ -76,15 +74,15 @@
                   <?php
                         if((!isset($_SESSION['useronline'])) && (!isset($_SESSION['vendonline']))){
                     ?>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 py-3 me-left">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-left">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active px-4" aria-current="page" href="index.php">Home</a>
                       </li>
                  <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="aboutus.php">About Us</a>
+                        <a class="nav-link active px-4" aria-current="page" href="aboutus.php">About Us</a>
                       </li>
                  <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="faq.php">FAQ</a>
+                        <a class="nav-link active px-4" aria-current="page" href="faq.php">FAQ</a>
                       </li> 
                   <li class="nav-item dropdown px-3 mx-3 ">
                         <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -126,8 +124,7 @@
                         <ul class="dropdown-menu" style="border-radius: 0px;background-color:rgb(187, 200, 227);">
                           <li><a class="dropdown-item" href="userpage.php">Profile</a></li>
                           <li><a href="user_profile.php" class="dropdown-item" id="myButton">Add Profile Picture</a></li>
-                          <li><a href="user_profileu.php" class="dropdown-item">Change Profilegit push origin main
-                          Picture</a></li>
+                          <li><a href="user_profileu.php" class="dropdown-item">Change Profile Picture</a></li>
                           <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                       </div>
