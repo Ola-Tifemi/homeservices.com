@@ -19,20 +19,16 @@
     require_once "partials/header.php";
 ?>
 
-        <div class="row mt-5 pt-4">
-            <div class="col-md-6 offset-md-3">
-            <ul id="resultsList" class="list-group mt-3"></ul>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-md-12 p-2 mt-5 m-2">
+            <div class="col-md-12 p-2 mt-5">
                 <div class="col-md-12 col-lg-12 col-sm-12 text-center text-primary p-3  animate__animated animate__bounceInUp ">
                     <h2>BOOK A SERVICE TODAY!!</h2>
                     <hr><hr>
                   </div>
             </div>
+        </div>
             <div class="row">
-                <div class="col-md-5 offset-md-2">
+                <div class="col-md-8 offset-md-2">
                 <?php
                                             if(isset($_SESSION['errmsg'])){
                                     ?>
@@ -57,46 +53,40 @@
             </div>
              <!-- COOKING -->
         <div class="row mx-5 mouse">
-          <div class="col-md-10 offset-2 mt-3 mb-3 col-lg-6">
+          <div class="col-md-10 offset-md-2 mt-3 mb-3 col-lg-6">
             <img src="assets/images/<?php 
                 echo $photo['file_name'];
             ?>" alt="profile photo" class="img-fluid shadow" width="250px" style="border-radius:40%;">
-            <h3 class="text-primary pt-3">Hi, <?php echo $check['cust_uniquerusername'];?></h3>
-            <h5>We are thrilled to have you here! Book an Appointment Today!</h5>
-            <h6>Here are services Available Today!</h6> 
+            <h3 class="text-primary pt-3">Hi, <?php echo ucfirst($check['cust_uniquerusername']);?></h3>
+            <h5>We are thrilled to have you here! Book an Appointment Today!</h5\>
             </div>
         </div>
-        <div class="row">
-            <?php
-                    foreach($service as $s){
-            ?>
-                    <div class="col-md-6 col-lg-4 col-sm-12 p-3 px-3 py-4"> 
-                <form>
-                    <div class="mb-3 card-body">
-                        <div class="card shadow-lg bg-tertiary rounded" style="width: 22rem;">
-                            <img src="admin/assets/images/<?php echo $s['photoname'];?>" class="card-img-top" alt="service type picture" height="320px">
-                            <div class="card-body">
-                              <h5 class="card-title"><?php echo $s['type_name']?></h5>
-                              <p class="card-text"> Available Services Include: <?php echo $s['sertype_desc']?>. <br> Click below to Book Now!!</p>
-                              <a class="btn btn-outline-primary" href="use_vend.php?id=<?php echo $s['type_id'];?>">
-                  Book A service!!
+        <!--Service Listing -->
+        <div class="row g-4">
+    <?php foreach($service as $s){ ?>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-lg bg-tertiary rounded">
+            <img src="admin/assets/images/<?php echo $s['photoname'];?>" class="card-img-top img-fluid" alt="service type picture" style="height: 320px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title"><?php echo ucfirst($s['type_name'])?></h5>
+                <p class="card-text flex-grow-1">
+                    Available Services Include: <?php echo $s['sertype_desc']?>. <br>
+                    Click below to Book Now!!
+                </p>
+                <a class="btn btn-outline-primary mt-2" href="use_vend.php?id=<?php echo $s['type_id'];?>">
+                    Book A Service!!
                 </a>
-                    </div>
-                          </div>
-                       
-                          
-                          
-                    </div>
-                </form>
-            </div> 
-            
-            <?php
-                    }
-            ?>
-       </div>                     
-            
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+</div>
+            </div>
+        </div>
+                <!--Service Listing end -->
 
-       <div class="container-fluid mt-5">
+
+          <div class="container-fluid mt-5">
             <div class="row ">
                 <div class="col-lg-4 col-md-6 p-3 py-4 px-5" style="background-color:lightblue;">
                     <h4 class="text-primary mb-4 mt-5">Get In Touch</h4> 
@@ -105,13 +95,13 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3 text-primary"></i>(+234) 09163310932</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3 text-primary"></i>olanrewajugiwa@gmail.com</p>
                 </div>
-                <div class="col-lg-4 col-md-6 p-3 py-4 px-5" style="background-color:lightblue;">
+                <div class="col-lg-4 col-md-6  p-3 py-4 px-5" style="background-color:lightblue;">
                     <h4 class="text-primary mb-4 mt-5">Quick Links</h4>
                     <hr>
                     <p><a class="btn" href="userpage.php">Profile</a></p> 
                     <p><a class="btn" href="logout.php">Logout</a></p>
                 </div> 
-                <div class="col-lg-4 col-md-6 py-4 px-5" style="background-color:lightblue;"> 
+                <div class="col-lg-4 col-md-6  py-4 px-5" style="background-color:lightblue;"> 
                     <h4 class="text-primary  mt-5">Follow Us</h4>
                     <hr>
                     <div class="d-flex pt-2" style="background-color:lightblue;">
@@ -130,16 +120,16 @@
     <div class="container-fluid bg-primary copyright text-white py-4  fadeIn" data-wow-delay="0.1s">
         <div class="container">
             <div class="row ">
-                <div class="col-md-6 text-center bg-primary text-md-start">
+                <div class="col-md-6  text-center bg-primary text-md-start">
                     &copy; <a href="#"  class="text-decoration-none text-white">HomeServices.ng</a>, All Right Reserved.
                 </div>
-                <div class="col-md-6 text-center bg-primary text-md-end">
+                <div class="col-md-6  text-center bg-primary text-md-end">
                     Designed By <a href="#" class="text-decoration-none text-white">Giwa Olanrewaju Boluwaitfe</a>
                 </div>
             </div>
         </div>
     </div>
-        
+
            <!-- copyright ends -->
         <?php require_once "partials/footer.php"?>
   

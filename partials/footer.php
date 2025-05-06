@@ -5,8 +5,8 @@
           $(window).scroll(function(){
             $('.bounce').addClass('animate__animated animate__headShake animate__delay-1s')
             $('.bounce2').addClass('animate__animated animate__slideInRight animate__delay-2s')
-            $('.bounce3').addClass('animate__animated animate__heartBeat animate__delay-3s')
-            $('.bounce4').addClass('animate__animated animate__heartBeat animate__delay-5s')
+            $('.bounce3').addClass('animate__animated animate__bounce animate__delay-4s')
+            $('.bounce4').addClass('animate__animated animate__bounce animate__delay-5s')
             $('.bounce5').addClass('animate__animated animate__headShake animate__delay-6s')
             $('bounce6').addClass('animate__animated animate__zoomIn animate__delay-1s')
             $('#boun'),addClass('animate__animated animate__zoomIn animate__delay-1s')

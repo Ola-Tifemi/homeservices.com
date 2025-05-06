@@ -11,7 +11,7 @@
           <div class="row">
             <div class="col-md-6 p-3">
               <div class="card" style="width: 22rem;">
-                <img src="assets/images/cheerful-young-black-lady.jpg" class="card-img-top animate__animated animate__pulse animate__delay-1s" alt="cheerful-young-black-lady" height="320px">
+                <img src="assets/images/cheerful-young-black-lady.jpg" class="card-img-top animate__animated animate__pulse animate__delay-2s" alt="cheerful-young-black-lady" height="320px">
                 <div class="card-body">
                   <h5 class="card-title">We Provide Easy and Fast Home Services</h5>
                   <p class="card-text">We make daily less tasking and more accomplished, with Homeservices.com;
@@ -20,7 +20,7 @@
               </div>
             </div>
             <div class="col-md-6 text-center">
-              <h2 class="text-primary animate__animated animate__rubberBand animate__delay-1s">We Provide Easy and Fast Home Services </h2>
+              <h2 class="text-primary animate__animated animate__zoomInDown animate__delay-1s">We Provide Easy and Fast Home Services </h2>
 
               
         
@@ -55,7 +55,7 @@
                     <div class="col-lg-4 col-md-6 p-3 py-4 px-5" style="background-color:lightblue;">
                         <h4 class="text-primary mb-4 mt-5">Quick Links</h4>
                         <hr>
-                        <p><a class="btn" href="index.php">Profile</a></p>
+                        <p><a class="btn" href="index.php">Home</a></p>
                         <p><a class="btn" href="aboutus.php">About Us</a></p> 
                         <p><a class="btn" href="faq.php">FAQ</a></p>
                     </div> 

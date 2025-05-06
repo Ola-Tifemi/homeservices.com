@@ -12,6 +12,47 @@
     <title>Home Services.com</title>
   
     <style>
+@keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+            }
+        
+@keyframes textAnimation {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+.btn-outline-
+            {
+                transition: all 0.3s ease-in-out;
+            }
+            
+            .btn-outline-primary:hover {
+                background-color: #0d6efd;
+                color: white;
+                border-color: #0d6efd;
+                transform: scale(1.05);
+            }
+.card:hover {
+                transform: translateY(-10px);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
+
+
             div{
                 background-color: white;
                 font-family: "Signika", serif;} 
@@ -52,7 +93,25 @@
             }
             .navbar .buton a{
                 text-decoration: none; color: white;
-            }                
+            } 
+            
+            @media (max-width: 768px) {
+            .col-md-6 {
+                padding: 1rem;
+            }
+        
+        }
+        @media (max-width: 768px) {
+    .footer-text {
+        font-size: 0.9rem;  /* Smaller font size for mobile devices */
+    }
+    .container-fluid.bg-primary {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+
     </style>
 </head>
 <body>
