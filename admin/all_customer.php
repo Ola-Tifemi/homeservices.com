@@ -1,6 +1,11 @@
 <?php
         require_once 'classes/Admin.php';
+        require_once "admin_guard.php";
+        $id = isset($_SESSION['adminonline']) ? $_SESSION['adminonline'] : "header('location:login_form.php')";
+    
+        $ser = new Admin;
         $cust = new Admin;
+        $check = $ser->get_admin($id);
         $cid = $_GET['id'];
         $customer_detail = $cust->fetch_customers_detail($cid);
 

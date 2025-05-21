@@ -10,11 +10,12 @@
        
         <link href="assets/css/styles.css" rel="stylesheet" />
         <link href="assets/fontawesome/css/all.min.css" rel="stylesheet">
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-white">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="dashboard.html"><img src="assets/images/logo.png" alt="logo" width="70px" class="img-fluid animate__animated animate__tada">
+            <a class="navbar-brand ps-3" href="#"><img src="assets/images/logo.png" alt="logo" width="70px" class="img-fluid animate__animated animate__tada">
             <span class="navbar-brand  text-primary p-4">Home Services.com</span></a>
             <!-- Sidebar Toggle-->
             <!-- <button class="btn btn-link btn-sm btn-primary order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button> -->
@@ -30,8 +31,6 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                 </li>

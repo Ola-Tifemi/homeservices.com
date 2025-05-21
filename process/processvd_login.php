@@ -11,16 +11,21 @@ if(isset($_POST['btnloginv'])){
     $pass= $_POST['pass'];
     $check = $user->login($email,$pass);
 
+   if($email == '' || $pass == ''){
+    $_SESSION['errmsg']='please complete the form';
+    header('location:../vendlogin.php');exit;
+   }
    
     if($check){
         $_SESSION['vendonline']= $check;
         header("location:../vendorpage.php");
         exit;
     }else{
-     header("location:../vendlogin.php");exit;
+        $_SESSION['errmsg']='Invalid credentials.. ';
+        header('location:../vendlogin.php');exit;
     }
 }else{
-    $_SESSION['errmsgv']='please complete the form';
+    $_SESSION['errmsg']='please complete the form';
     header('location:../index.php');exit;
 }
 

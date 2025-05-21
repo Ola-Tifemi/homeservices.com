@@ -16,23 +16,7 @@ class Admin extends Db{
         $customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $customer;
     }
-    // public function insert_post($tempname,$filename,$unique_name,$vendor_id,$service_id){
-       
-    //     if(move_uploaded_file($tempname,$filename)){
-    //         $sql = "INSERT INTO  vendor_upload SET upload_name=?, vendor_id=?, servicetype_id =?";
-    //         $stmt = $this->connect()->prepare($sql);
-    //         $res = $stmt->execute([$unique_name,$vendor_id,$service_id]);
-    //         if($res){
-    //             // $_SESSION['feedback'] = "Profile Picture Updated";
-    //             // header('location:../vendorpage.php');
-    //             // exit;
-    //         }else{
-    //             echo "File not Uploaded and Added";
-    //         }
-    //     }else{
-    //         return "Unable to Upload";
-    //     }
-    // }
+
     public function update_profile($tempname,$filename,$unique_name,$service_type_name, $type_id, $servicesdesc){
         if(move_uploaded_file($tempname,$filename)){ 
         $sql = "UPDATE service_type SET photoname=?, type_name=?,sertype_desc=? WHERE type_id=?";
@@ -50,6 +34,14 @@ class Admin extends Db{
         }
    
 }
+
+    public function get_admin($id){
+        $sql = "SELECT * FROM admin WHERE admin_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$id]);
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
     public function admin_login($username,$password){
         try{
             $sql="SELECT * FROM admin WHERE admin_name=?";
@@ -62,11 +54,11 @@ class Admin extends Db{
                 if($chk){
                     return $data['admin_id'];
                 }else{
-                    $_SESSION['admin_error']='invalid password';
+                    $_SESSION['adminerr']='invalid password';
                     return false;
                 }
             }else{
-                $_SESSION['admin_error']='invalid username';
+                $_SESSION['adminerr']='invalid username';
                 return false;
             }
 
@@ -96,6 +88,20 @@ class Admin extends Db{
         $stmt->execute([$id]);
         $res = $stmt->fetch(PDO::FETCH_ASSOC);
         return $res;
+    }
+    public function count_all_services(){
+        $sql = "SELECT* FROM service_type";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $num = $stmt->rowCount();
+        return $num;
+    }
+    public function count_all_services_sub(){
+        $sql = "SELECT* FROM services";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $num = $stmt->rowCount();
+        return $num;
     }
     public function count_all_vendors(){
         $sql = "SELECT* FROM vendors";

@@ -237,11 +237,11 @@ class User extends Db{
                 if($check){
                     return $data['cust_id'];
                 }else{
-                    $_SESSION['errmsg']="Invalid password";
+                    $_SESSION['errmsg']="Invalid credentials";
                     return false;
                 }
              }else{
-                $_SESSION['errmsg']="Invalid username";
+                $_SESSION['errmsg']="Invalid credentials";
                 return false;
              }   
         }catch(PDOException $e){

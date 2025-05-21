@@ -26,8 +26,8 @@
 ?>
 
 
-    <div class="row">
-        <div class="col-12 text-center text-primary p-3 animate__animated animate__headShake animate__delay-6s">
+    <div class="row mt-4">
+        <div class="col-12 mt-5 text-center text-primary p-3 animate__animated animate__headShake animate__delay-6s">
             <h2>TAKE ACTION TO GET BOOKED!!</h2>
             <hr><hr>
         </div>
@@ -35,7 +35,7 @@
 
     <!-- Feedback and Error Messages -->
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-8 offset-md-2">
             <?php if (isset($_SESSION['feedback'])){ ?>
                 <div class="alert alert-primary">
                     <p><?php echo $_SESSION['feedback']; ?></p>
@@ -199,10 +199,14 @@
     </div>
 </div>
 
+</div>
+    </div>
+</div>
+
 
             <!-- Footer starts -->
-                                <!-- footer -->
-                                <div class="container-fluid mt-5">
+                 <!-- footer -->
+        <div class="container-fluid mt-5">
             <div class="row ">
                 <div class="col-lg-4 col-md-6 p-3 py-4 px-5" style="background-color:lightblue;">
                     <h4 class="text-primary mb-4 mt-5">Get In Touch</h4> 

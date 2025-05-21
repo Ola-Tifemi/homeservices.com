@@ -7,44 +7,69 @@
  
     require_once "partials/header.php";
 ?>
-      
-          <div class="row mt-5 mb-3">
-    <div class="col-12 position-relative p-0" style="
-        background-image: url('assets/images/happy-black-lady-cleaning.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 85vh; animation: backgroundAnimation 10s infinite ease-in-out;
-    ">
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="
-            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
-            z-index: 1;
-        "></div>
+      <!-- Hero section starts -->
+    <div class="row mt-5 mb-5">
+        <div class="col-12 position-relative p-0" style="
+            background-image: url('assets/images/happy-black-lady-cleaning.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 85vh; animation: backgroundAnimation 10s infinite ease-in-out;
+        ">
+          <div class="position-absolute top-0 start-0 w-100 h-100" style="
+              background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+              z-index: 1;
+          "></div>
 
-        <!-- Text Layer -->
-        <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3" style="animation: textAnimation 2s ease-out;z-index: 2; background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));">
+          <!-- Text Layer -->
+          <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3" style="animation: textAnimation 2s ease-out; z-index: 2; background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)); width: 100%;">
             <h2 class="fw-bold mb-3">Making Home Services Effortless</h2>
-            <p class="lead m-0">Connect easily with trusted service providers near you — fast, reliable, and stress-free.</p>
+            <p class="lead m-0 mb-4">Connect easily with trusted service providers near you — fast, reliable, and stress-free.</p>
+            
+              <!-- Search Input Group -->
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-8">
+                    <div class="input-group">
+                      <input type="text" id="service-search" class="form-control" placeholder="Search for a service...">
+                      <button class="btn btn-primary" id="search-btn">Search</button>
+                    </div>
+                  </div>
+                </div>
+                      <!-- spinner -->
+                  <div id="loading-spinner" class="text-center my-3" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+              <!-- Search Results Section -->
+              <div id="results" class="row mt-4 px-3"></div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+     <!-- Hero section ends -->
+    
 
+            <!-- Alert -->
+        <div class="row" id="privacy-alert" style="display: none;">
+          <div class="col-md fixed-bottom">
+            <div class="alert alert-info fade show alert-dismissible text-primary" style="background-color:beige;" role="alert">
+              <p>
+                At HomeServices.com, we strive to connect you with trusted service providers. Each provider is thoroughly verified before being invited to join our platform. 
+                However, as a user, please note that it is your responsibility to assess and engage with the providers at your discretion. By continuing to use this platform, 
+                you consent to the processing of your personal data in accordance with NDPR and other applicable regulations.
+              </p>
+              <p align="right">
+                <button id="agreeBtn" class="btn btn-outline-primary btn-sm">Got it</button>
+              </p>
+            </div>
+          </div>
+        </div>
 
-
-<div class="row">
-  <div class="col-md fixed-bottom">
-    <div class="alert alert-info fade show alert-dismissible text-primary" style="background-color:beige;" role="alert">
-      <p>At HomeServices.com, we strive to connect you with trusted service providers. Each provider is thoroughly verified before being invited to join our platform. However, as a user, please note that it is your responsibility to assess and engage with the providers at your discretion. By continuing to use this platform, you consent to the processing of your personal data in accordance with NDPR and other applicable regulations.</p>
-      
-      <p align="right"><button class="btn btn-outline-primary btn-sm" data-bs-dismiss="alert">Got it</button></p>
-    </div>
-  </div>
-</div>
-
-
-
-              <div class="row">
-                <div class="col-md-12  text-center text-primary bounce">
+                      <!-- Main Content Starts-->
+              <div class="row mt-5">
+                <div class="col-md-12 mt-3 text-center text-primary bounce">
                   <h2>LET US HELP YOU DO IT..</h2>
                   <hr><hr>  
                 </div>
@@ -66,7 +91,7 @@
               </div>
             
             
-                <div class="row">
+                <div class="row mt-5">
                         <div class="col-md-12 text-center text-primary" >
                           <h2>WHAT WE DO?</h2>
                           <hr><hr>
@@ -96,7 +121,7 @@
           
                 <!--Service Listing end -->
                     
-              <div class="row p-3 m-2">
+              <div class="row mt-4 p-3 m-2">
                   <div class="col-md-6 p-5 align-center bounce3">
                     <img src="assets/images/home_barb.webp" width="450px" alt="home_barb" class="img-fluid">
                     
@@ -161,9 +186,9 @@
                     
                   </div>
                 </div>
-                          </div>
+            </div>
                   
-                
+                <!--Main Content Ends -->
 
             <!-- footer starts -->
       
@@ -214,4 +239,61 @@
                         
            <!-- copyright ends -->
             <?php require_once "partials/footer.php"?>
+        <script>
+          $(document).ready(function(){
+            function renderCards(data){
+              $('#results').empty();
+              if(data.length === 0){
+                $('#results').html('<p class="text-light">Service not available.</p>');
+                return;
+              }
+
+              data.forEach(function(item){
+                const card = `
+                  <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                      <div class="card-body">
+                        <h5 class="card-title">${item.vendor_brandname}</h5>
+                        <p class="card-text mb-1"><strong>Service:</strong> ${item.service_name}</p>
+                        <p class="card-text mb-1"><strong>Email:</strong> ${item.vendor_email}</p>
+                        <p class="card-text"> <i class="fab fa-whatsapp text-success"></i>
+                        :<a href="https://wa.me/${item.vendor_officenumber}" class="text-decoration-none">  ${item.vendor_officenumber}</a></p>
+                      </div>
+                    </div>
+                  </div>`;
+                $('#results').append(card);
+              });
+            }
+
+            $('#search-btn').on('click', function(){
+            const term = $('#service-search').val().trim();
+            if(term.length > 1){
+              $('#loading-spinner').show();  // Show spinner
+              $('#results').empty();         //clear old results
+
+              $.ajax({
+                url: 'server/search.php',
+                method: 'POST',
+                data: { term },
+                success: function(response){
+                  renderCards(response);
+                },
+                error: function(){
+                  $('#results').html('<p class="text-danger">An error occurred. Please try again.</p>');
+                },
+                complete: function() {
+                  $('#loading-spinner').hide(); // Hide spinner after request is done
+                }
+              });
+            }
+          });
+
+
+            $('#service-search').on('keypress', function(e){
+              if(e.which == 13) $('#search-btn').click();
+            });
+          });
+        </script>
+
+
     

@@ -5,4 +5,4 @@ if(!isset($_SESSION['vendonline'])){
     exit;
 }
 
-?> 
+?> $_SESSION['adminonline']

@@ -2,8 +2,13 @@
 
             session_start();
         require_once "classes/Admin.php";
-            $ser = new Admin;
-$check = $ser->fetch_services_type();
+        require_once "admin_guard.php";
+        $id = isset($_SESSION['adminonline']) ? $_SESSION['adminonline'] : "header('location:login_form.php')";
+    
+        $ser = new Admin;
+        $check = $ser->get_admin($id);
+
+        $check = $ser->fetch_services_type();
 
 
 

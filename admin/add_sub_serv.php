@@ -2,8 +2,13 @@
 
             session_start();
         require_once "classes/Admin.php";
-            $ser = new Admin;
-$check = $ser->fetch_services();
+        require_once "admin_guard.php";
+        $id = isset($_SESSION['adminonline']) ? $_SESSION['adminonline'] : "header('location:login_form.php')";
+    
+        $ser = new Admin;
+        $check = $ser->get_admin($id);
+        
+$check1 = $ser->fetch_services();
 $check2 = $ser->fetch_services_type();
 
 
@@ -46,7 +51,7 @@ $check2 = $ser->fetch_services_type();
                 <tbody>
                    <?php
                    $sn = 1;
-                    foreach($check as $v ){
+                    foreach($check1 as $v ){
                         ?>
                         <tr>
                             <td><?php echo $sn++; ?></td>

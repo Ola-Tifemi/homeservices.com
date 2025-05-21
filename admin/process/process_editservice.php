@@ -8,11 +8,17 @@
         // echo "</pre>";
         // exit;
         if(isset($_POST['editserv'])){
-            // retrieve all the data including the id of the menu to update 
+            // retrieve all the data including the id of the service to update 
             $type_name =  $_POST['type_name'];
             $servicesdesc = $_POST['servicesdesc'];
             $type_id =  $_POST['type_id'];
             $check = isset($_POST['check']) ? $_POST['check'] : '';
+
+            if(empty($check)){
+                $_SESSION['adminerr']='Please Check the box to confirm you want to update the service';
+                header("location:../edit_service.php?id=".$type_id); //passing with id incase there is error and id can be passed with it 
+                exit;
+            }
 
 
             $name = $_FILES['dp']['name'];
@@ -21,27 +27,13 @@
             $erro = $_FILES['dp']['error'];
             $size = $_FILES['dp']['size'];
                
-        
-            if($erro != 0){
-                $_SESSION['adminerr'] = "Please select an image";
-                header('location:../add_serv.php');
-                exit;
-            }
-            if($size >  2097152 ){
-                $_SESSION['adminerr'] = "You can not upload more than 2mb";
-                header('location:../add_serv.php');
-                exit;
-            }
             $allowed =['jpg','jpeg','png']; 
             $user_ext = pathinfo($name,PATHINFO_EXTENSION);
-            if(!in_array($user_ext,$allowed)){
-                $_SESSION['adminerr'] = "You can only up .jpg, .jpeg, .png";
-                header('location:../add_serv.php');
-                exit;
-            }      
+      
             $unique_name = "post_". uniqid(). '.'. $user_ext;
             
             $to = '../assets/images/'. $unique_name;
+
 
             
            

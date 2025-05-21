@@ -17,11 +17,11 @@
         <link href="assets/fontawesome/css/all.min.css" rel="stylesheet">
     </head>
 
-        <!-- end of navbar -->
-            <div class="row py-5 my-5">
+        
+            <div class="row mt-3 py-3 mx-3">
                 <div class="col-md-6 shadow-lg bg-body-transparent rounded p-3">
-                    <form action="process/process_login.php" method="post" id="log" class="p-3">
-                        <h1>Log In</h1>
+                    <form action="process/process_login.php" method="post" id="log">
+                        <h1>Admin Log In</h1>
                         <?php
                                             if(isset($_SESSION['adminerr'])){
                                     ?>
@@ -54,9 +54,6 @@
                        <button class="btn btn-outline-primary col-10 m-2 p-3" name="btnlogin" type="submit">Log In</button>
                         </div>
                     </form>
-                    <br>
-                    <span>New User?<a href="regsiter.php" class="p-2 ">Sign Up</a></span>
-                    <span> | New Service Provider?<a href="vendregister.php" class="p-2">Log In</a></span>
                 </div>
                 <div class="col-md-6">
                    <div class="shadow-lg bg-body-transparent rounded ">

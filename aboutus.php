@@ -14,8 +14,8 @@
                 <img src="assets/images/cheerful-young-black-lady.jpg" class="card-img-top animate__animated animate__pulse animate__delay-2s" alt="cheerful-young-black-lady" height="320px">
                 <div class="card-body">
                   <h5 class="card-title">We Provide Easy and Fast Home Services</h5>
-                  <p class="card-text">We make daily less tasking and more accomplished, with Homeservices.com;
-                    we ensure all electrical or plumbin works are even personal errands are donw with the comfort of your home. </p>
+                  <p class="card-text">We make daily activities less tasking and more accomplished, with Homeservices.com;
+                    we ensure all electrical or plumbin works and even personal errands are done from the comfort of your home. </p>
                 </div>
               </div>
             </div>

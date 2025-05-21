@@ -3,6 +3,10 @@
             session_start();
        
         require_once "classes/Admin.php";
+        require_once "admin_guard.php";
+        $id = isset($_SESSION['adminonline']) ? $_SESSION['adminonline'] : "header('location:login_form.php')";
+        $ser = new Admin;
+        $check = $ser->get_admin($id);
           
         $serv = new Admin;
         $id = $_GET['id']; 
@@ -35,7 +39,7 @@
                                         
                                 <?php
                                         if(isset($_SESSION['adminerr'])){
-                                            echo "<p class='alert alert-danger'>".$_SESSION['admin_error']."</p>";
+                                            echo "<p class='alert alert-danger'>".$_SESSION['adminerr']."</p>";
                                             unset($_SESSION['adminerr']);
                                         }
                                         ?>

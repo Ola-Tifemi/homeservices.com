@@ -15,11 +15,12 @@ if(isset($_POST['btnlogin'])){
         header("location:../index.php");
         exit;
     }else{
-        header("location:../index.php");exit;
+        $_SESSION['adminerr'] = 'Invalid username or password';
+        header("location:../login_form.php");exit;
     }
 }else{
     $_SESSION['adminerr']='please complete the form';
-    header('location:../index.php');exit;
+    header('location:../login_form.php');exit;
 }
 
 ?>

@@ -3,13 +3,20 @@
 
        session_start();
    require_once "classes/Admin.php";
-  
-       $ser = new Admin;
+   require_once "admin_guard.php";
+   $id = isset($_SESSION['adminonline']) ? $_SESSION['adminonline'] : "header('location:login_form.php')";
+    
+$ser = new Admin;
+$check = $ser->get_admin($id);
 $check = $ser->fetch_services_type();
 $serv = $ser->fetch_services();
 $vend = new Admin;
 $count1 = $vend->count_all_vendors();
 $count = $vend->count_all_custoemrs();
+$check1 = $vend->count_all_services();
+$check2 = $vend->count_all_services_sub();
+
+
 require_once "partials/header.php";
 ?>
 
@@ -35,69 +42,51 @@ require_once "partials/header.php";
                                             unset($_SESSION['feedback']);
                                         }
                             ?>
-                        <div class="row">
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white p-1 mb-4">
-                                    <div class="card-body"><p>VIEW SERVICES</p></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        
-                                        <form action="£" method="post">
-                                <div class="mb-3">
-                                        <select name="select" id="select" class="form-select">
-                                                <option value="">View Services</option>
-                                                <?php
-                                                        foreach($check as $v){
-                                                                ?>
-                                                        <option value=""><?php echo $v["type_name"];?></option>
-                                                                <?php
-                                                        }
-                                                ?>
-                                        </select>
-                                </div>
-                        </form>
-                                       
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-warning text-white p-2 mb-4">
-                                    <div class="card-body">VIEW SERVICE SUB-CARTEGORIES</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between p-3">
-                                    <form action="£" method="post">
-                                <div class="mb-3">
-                                        <select name="select" id="select" class="form-select">
-                                                <option value="">View Service Sub-cartegories</option>
-                                                <?php
-                                                        foreach($serv as $v){
-                                                                ?>
-                                                        <option value=""><?php echo $v["service_name"];?></option>
-                                                                <?php
-                                                        }
-                                                ?>
-                                        </select>
-                                    </div>
-                                 </form>
-                                </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="container-fluid">
+                        
+                            
+<div class="container-fluid"style="background-color:lightblue; border-radius:35%">
+    <div class="row mb-5 pt-3 pb-2">
+        <div class="col-md-12">
+        <h1 class="text-primary text-center">Welcome to Home Services Admin Dashboard</h1>
+            <p class="text-center text-secondary">You can manage all the services, vendors, and customers from here...</p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="background-color:lightblue; border-radius: 20%;">
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <h2 class="text-primary text-center">Total No of Services</h2>
+            <div class="mb-3 text-center">
+                <button class="btn btn-secondary btn-lg" style=" background-image: linear-gradient(90deg,blue, grey), 
+                    linear-gradient(90deg, red, orange, yellow,violet);"><a href="add_serv.php" class='text-decoration-none text-white'><p>No of Services <br><b><?php echo $check1;?></p></a> </b></button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-primary text-center">Total No of Sub-Services</h2>
+            <div class="mb-3 text-center">
+                <button class="btn btn-secondary btn-lg" style=" background-image: linear-gradient(90deg,blue, grey), 
+                    linear-gradient(90deg, red, orange, yellow,violet);"><a href="add_sub_serv.php" class='text-decoration-none text-white'><p>No of Sub-Services <br><b><?php echo $check2;?></p></a> </b></button>
+            </div>
+        </div>
+    </div>
    <div class="row">
             <div class="col-md-6 py-3">
             <h2 class="text-primary text-center">Total No of Customers</h2>
                 <div class="mb-3 text-center">
-                    <button class="btn btn-primary btn-lg"><a href="all_customers.php" class='text-decoration-none text-white'><p>No of Customers <br><b><?php echo $count;?></p></a> </b></button>
+                    <button class="btn btn-primary btn-lg" style=" background-image: linear-gradient(90deg,grey,blue), 
+                    linear-gradient(90deg, red, orange, yellow,violet);"><a href="all_customers.php" class='text-decoration-none text-white'><p>No of Customers <br><b><?php echo $count;?></p></a> </b></button>
                 </div>
             </div>
             <div class="col-md-6 py-3">
             <h2 class="text-primary text-center">Total No of Vendors</h2>
                 <div class="mb-3 text-center">
-                <button class="btn btn-warning btn-lg"> <a href="all_vendors.php" class="text-decoration-none"> <p>No of Vendors <br><b><?php echo $count1;?></p></b></a></button>
+                <button class="btn btn-primary btn-lg" style=" background-image: linear-gradient(90deg,grey,blue), 
+                    linear-gradient(90deg, red, orange, yellow,violet);"> <a href="all_vendors.php" class="text-decoration-none text-white"> <p>No of Vendors <br><b><?php echo $count1;?></p></b></a></button>
                 </div>
             </div>
         </div>
-        
+    </div>  
+</div>  
 
             </main>
                

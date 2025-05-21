@@ -142,11 +142,6 @@ class Vendor extends Db{
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([$id]);
             $id = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            // echo "<pre>";
-            // print_r($id);
-            // echo "</pre>";
-            // exit;    
-
             return $id;
         }catch(PDOException $e){
             echo   $e->getMessage();
@@ -221,11 +216,11 @@ class Vendor extends Db{
                 if($check){
                     return $data['vendor_id'];
                 }else{
-                    $_SESSION['errmsg']="Invalid Password";
+                    $_SESSION['errmsg']="Invalid credentials";
                     return false;
                 }
              }else{
-                $_SESSION['errmsg']="Invalid Email";
+                $_SESSION['errmsg']="Invalid credentials";
                 return false;
                
              }   

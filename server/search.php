@@ -1,16 +1,16 @@
 <?php
 require_once '../classes/ServiceSearch.php';
 
-header('Content-Type: application/json');
+if (isset($_POST['term'])) {
+    $term = $_POST['term'];
 
-if (isset($_GET['q'])) {
-    $query = $_GET['q'];
-    $search = new ServiceSearch();
-    $results = $search->search($query);
+    $service = new ServiceSearch;
+    $results = $service->search_services($term);
+
+    header('Content-Type: application/json');
     echo json_encode($results);
-} else {
-    echo json_encode([]);
 }
+
 
 
 

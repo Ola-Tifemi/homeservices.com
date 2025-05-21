@@ -9,6 +9,11 @@ $user = new User;
 if(isset($_POST['btnlogin'])){
     $username= $_POST['user'];
     $pass= $_POST['pass'];
+
+    if($username == '' || $pass == ''){
+        $_SESSION['errmsg']='please complete the form';
+        header('location:../login.php');exit;
+       }
     $check = $user->login($username,$pass);
     if($check){
         $_SESSION['useronline']= $check;

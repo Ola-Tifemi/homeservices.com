@@ -18,19 +18,19 @@
 
     }
         if($erro != 0){
-            $_SESSION['errmsgv'] = "Please select an image";
+            $_SESSION['errmsg'] = "Please select an image";
             header('location:../vendorpage.php');
             exit;
         }
         if($size >  2097152 ){
-            $_SESSION['errmsgv'] = "You can not upload more than 2mb";
+            $_SESSION['errmsg'] = "You can not upload more than 2mb";
             header('location:../vendorpage.php');
             exit;
         }
         $allowed =['jpg','jpeg','png']; 
         $user_ext = pathinfo($name,PATHINFO_EXTENSION);
         if(!in_array($user_ext,$allowed)){
-            $_SESSION['errmsgv'] = "You can only up .jpg, .jpeg, .png";
+            $_SESSION['errmsg'] = "You can only up .jpg, .jpeg, .png";
             header('location:../vendorpage.php');
             exit;
         }      

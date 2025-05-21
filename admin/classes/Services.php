@@ -25,6 +25,13 @@ class Services extends Db{
     $service = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $service;
 }
+
+public function search_services($term) {
+    $sql = "SELECT type_name FROM service_type WHERE type_name LIKE ? LIMIT 10";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute(["%$term%"]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 public function fetch_services(){
     $sql = "SELECT * FROM services";
     $stmt = $this->conn->prepare($sql);

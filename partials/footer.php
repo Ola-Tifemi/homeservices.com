@@ -15,6 +15,12 @@
 
         });
       </script>
+      <script>
+  window.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('service-search').value = '';
+  });
+</script>
+
               <script>
         $(function(){
             $('#cart').change(function(){
@@ -34,5 +40,37 @@
         })
 
         </script>
+        
+    <script>
+    // Get a cookie by name
+    function getCookie(name) {
+      let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      return match ? match[2] : null;
+    }
+
+    // Set a cookie with a duration in days
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    // Show the privacy alert only if user hasn't agreed
+    window.onload = function () {
+      if (!getCookie("hasAgreed")) {
+        document.getElementById("privacy-alert").style.display = "block";
+      }
+
+      document.getElementById("agreeBtn").addEventListener("click", function () {
+        setCookie("hasAgreed", "true", 365);
+        document.getElementById("privacy-alert").style.display = "none";
+      });
+    };
+    </script>
+
 </body>
 </html>
